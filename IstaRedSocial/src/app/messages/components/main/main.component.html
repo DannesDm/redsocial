@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-lg-4">
+        <br/><br/>
+        <h3>{{title}}</h3>
+
+        <!---
+            <ul class="sidemenu">
+                <li [routerLinkActive]="['active']">
+                    <a [routerLink]="['enviar']">
+                        <p style="background-color: #1565c0;color: white; ">Enviar mensaje</p>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a [routerLink]="['recibidos']">
+                        <p style="background-color: #1565c0;color: white;">
+                            Mensajes recibidos</p>
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['active']">
+                    <a [routerLink]="['enviados']">
+                        <p style="background-color: #1565c0;color: white; ">
+                            Mensajes enviados</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/home']">
+                        <p style="background-color: #1565c0;color: white; ">
+                            Informacion</p>
+                    </a>
+                </li>
+
+            </ul>
+-->
+        <!----->
+        <div class="container">
+
+            <div class="list-group">
+
+
+
+                <a [routerLink]="['enviar']" [routerLinkActive]="['active']" class="list-group-item list-group-item-action">Enviar Mensaje</a>
+                <a [routerLink]="['recibidos']" [routerLinkActive]="['active']" class="list-group-item list-group-item-action">Mensajes Recibidos</a>
+                <a [routerLink]="['enviados']" [routerLinkActive]="['active']" class="list-group-item list-group-item-action">Mensajes Enviados</a>
+                <a [routerLink]="['/acercadenosotros']" class="list-group-item list-group-item-action">Información</a>
+            </div>
+        </div>
+
+        <!------>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <div class="col-lg-8">
+        <br/><br/>
+        <router-outlet></router-outlet>
+    </div>
+</div>

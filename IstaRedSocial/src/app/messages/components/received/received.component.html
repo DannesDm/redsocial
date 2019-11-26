@@ -1,0 +1,56 @@
+<div class="col-lg-8">
+    <h3>{{title}}</h3>
+
+    <!--Listado de mensaje recibidos-->
+    <div class="people" *ngIf="messages">
+
+
+
+        <div *ngFor="let message of messages" class="item-user">
+            <div class="card" *ngIf="message.emitter">
+                <div class="card-block" style="padding: 10px;margin: 10px;">
+
+                    <div class="image-user pull-left">
+
+                        <a href="#">
+                            <img src="{{ url + 'get-image-user/' + message.emitter.userimagen}}" class="rounded-circle float-left" width="85px" height="85px" *ngIf="message.emitter.userimagen" />
+                            <img src="assets/user.png" class="avatar-default" class="rounded-circle float-left" width="85px" height="85px" *ngIf="!message.emitter.userimagen" />
+
+                        </a>
+                    </div>
+
+                    <div class="user-name ">
+                        <p class="name-surname">
+                            <a [routerLink]="['/perfil',message.emitter._id]">
+                                    {{message.emitter.userprimernombre + ' ' + message.emitter.userprimerapellido}}   
+                                </a> &nbsp; | &nbsp;
+
+                            <span class="date">
+                                    {{ (message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}
+                                </span>
+                        </p>
+
+                        <p>
+                            {{message.text}}
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <br/>
+    <!--PAGINACION-->
+    <ul class="pagination justify-content-end">
+        <li *ngIf="page > 1">
+            <a [routerLink]="['/mensajes/recibidos',prev_page]">
+                <button class="btn btn-outline-primary">  Anterior</button></a>
+        </li>
+        <li *ngIf="pages != page">
+            <a [routerLink]="['/mensajes/recibidos',next_page]">
+                <button class="btn btn-outline-primary"> Siguiente</button></a>
+        </li>
+    </ul>
+</div>

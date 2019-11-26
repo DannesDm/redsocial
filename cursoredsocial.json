@@ -1,0 +1,11 @@
+{
+    "name": "redsocial",
+    "version": "1.0.0",
+    "description": "Ejemplo de como crear una red social",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Dannes",
+    "license": "MIT"
+}

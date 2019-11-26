@@ -1,0 +1,23 @@
+<br/><br/>
+<h1>{{title}}</h1>
+
+<div class="people">
+    <div *ngFor="let user of users" class="item-user">
+        <div class="card" style="margin: 10px;padding: 8px;">
+            <div class="card-block">
+                <div>
+                    {{user.useridentificacion}} {{user.userprimernombre}} {{user.userprimerapellido}}
+                </div>
+                <!--
+                <p *ngIf="(identity && identity.userrol == 'ROLE_ADMIN ')">
+                    <label><b>DESCRIPCIÓN GRUPO: </b></label> {{group.grouptext}}
+                </p>
+-->
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

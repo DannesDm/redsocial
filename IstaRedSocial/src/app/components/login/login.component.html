@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<!---
+<html></html>
+<body></body>
+-->
+<div class="col-lg-12" *ngIf="!identity">
+    <br/><br/>
+    <br/>
+    <!--Poner un comentario -->
+    <div class="alert alert-success col-lg-6 offset-3" style="text-align: center;" *ngIf="status=='success'">
+        El usuario y la Contraseña son correctos, Bienvenido!!
+    </div>
+
+
+    <div class="alert alert-danger col-lg-6 offset-3" style="text-align: center;" *ngIf="status == 'error'">
+        El usuario o la Contraseña son incorrectos, intentalo con datos correctos.
+
+    </div>
+
+
+    <!--Formulario de login-->
+    <div class="card" style="width: 550px;" *ngIf="!identity">
+        <div class="card-header">
+            <img class="img-fluid mx-auto d-block rounded" src="../../../assets/uno.png" width="200px" height="150px" />
+
+        </div>
+        <div class="body">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!identity">
+
+                <p>
+                    <label></label>
+
+                </p>
+
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" name="useridentifiacion" #useridentificacion="ngModel" [(ngModel)]="user.useridentificacion" placeholder="Número de Identificación" class="form-control" required onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10"
+                    />
+
+
+
+
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="userpassword" #userpassword="ngModel" [(ngModel)]="user.userpassword" placeholder="Contraseña" class="form-control" required maxlength="32" />
+
+
+                </div>
+
+                <div style="text-align: center;">
+                    <input type="submit" value="Ingresar" style="width: 150px;text-align: center;" class=" btn btn-primary " [disabled]="!loginForm.form.valid" />
+                </div>
+                <br>
+                <p style="text-align: center;">
+                    MÁS INFORMACIÓN SOBRE ISTA
+                </p>
+                <div class="mx-auto" style="width: 110px;">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

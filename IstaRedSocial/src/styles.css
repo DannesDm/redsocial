@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*
+.navigation {
+    padding: 0px !important;
+}
+
+
+.navigation .navbar {
+    border-radius: 0px !important;
+     background: blue !important;
+    color: black;
+    border: none;
+}
+
+.navigation .navbar * {
+    color: white !important;
+}
+
+.pointer {
+    cursor: pointer
+}
+.navigation .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-top: 9px;
+    margin-right: 2px;
+}
+
+.navigation .avatar img {
+    height: auto;
+    width: 38px;
+}
+*/
+
+
+/*
+.active {
+    background: slategray !important;
+}
+
+.navigation .navbar a:hover {
+    background: steelblue !important;
+}
+
+
+/*
+.navigation .navbar .drowdown-menu {
+    color: black;
+}*/
+
+
+/*Sidebar*/
+
+
+/*
+#user-card {
+    padding: 25px;
+    width: 32%;
+}
+
+#user-card .avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+#user-card .avatar img {
+    width: 100%;
+}
+
+#user-card .name-surname {
+    font-weight: 300;
+    font-size: 17px;
+}
+
+#user-card .name-surname a {
+    color: blue;
+}
+/*color de link en tarjeta usuario*/
+
+
+/*publicaciones
+
+#user-card,
+#new-publication {
+    padding: 25px;
+    width: 32%;
+}
+
+#new-publication {
+    padding: 18px;
+    padding-left: 8px;
+}
+
+.item-user .image-user {
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+
+/*para imagen de los seguidores a quien sigo
+
+.item-publication .image-user {
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.item-user .image-user img {
+    width: 120px;
+}
+
+.item-publication .image-user img {
+    width: 120px;
+}
+
+.item-user .user-name {
+    margin-top: 10px;
+}
+
+.item-publication .user-name {
+    margin-top: 10px;
+}
+
+.item-user .identificacionusuario {
+    color: blue;
+}
+
+.nombreapellido a {
+    font-weight: bold;
+    color: black;
+}
+
+.avatar-default {
+    width: 100% !important;
+}
+
+
+Timeline
+
+#publications {
+    min-height: 500px;
+}
+
+#publications .date {
+    color: black;
+}
+*/

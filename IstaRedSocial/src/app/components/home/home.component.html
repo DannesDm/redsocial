@@ -1,0 +1,75 @@
+<div class="col-lg-12 col-lg-offset-0" *ngIf="(identity && identity.userrol =='ROLE_ADMIN')">
+
+
+    <div class="jumbotron" style="margin: 15px;" *ngIf="identity.userrol =='ROLE_ADMIN'">
+        <h1 style="text-align: center; font-size: 5em;"> {{ title}}</h1>
+
+        <p style="text-align: center;font-size: 2em;">{{identity.userprimernombre | uppercase}} - Página De Inicio </p>
+
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+<br/> <br/>
+
+<div class="container col-lg-12" *ngIf="(identity && identity.userrol == 'ROLE_USER')">
+
+    <div class="row ">
+
+        <div class="col-lg-3 ">
+
+            <groups></groups>
+
+        </div>
+
+        <div class="col-lg-9 ">
+            <br/>
+            <publications></publications>
+        </div>
+
+        <!--
+        <div class="col-lg-3 ">
+           
+            <br/><br/>
+            <div class="card">
+
+                <div class="card-header">USUARIOS <br/></div>
+                <div class="body">
+
+                    <div *ngFor="let user of users">
+                        <div class="card-block" style="margin: 10px;padding: 8px;">
+                            <img src="{{url +'get-image-user/'+ user.userimagen}}" class="rounded-circle float-left" width="46px" height="46px" *ngIf="user.userimagen" />
+
+                            <img src="assets/user.png" class="rounded-circle float-left" width="45px" height="45px" *ngIf="!user.userimagen" /> {{user.userprimernombre}} {{user.userprimerapellido}}
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        
+        </div>
+        -->
+        <!--        <div class="col-lg-8">
+            <publications></publications>
+
+        </div>-->
+
+    </div>
+</div>

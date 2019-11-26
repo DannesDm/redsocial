@@ -1,0 +1,150 @@
+<div class="col-lg-4" *ngIf="(identity && identity.userrol == 'ROLE_ADMIN')">
+    <br/> <br/>
+    <h1 class="text-center">{{title}}</h1>
+
+
+    <div class="peoples">
+        <div *ngFor="let group of groups" class="item-user">
+            <div class="card" style="margin: 10px;padding: 8px;">
+                <div class="card-block">
+                    <label><b>NOMBRE GRUPO:</b></label> {{group.groupname}}
+                    <br/>
+                    <p *ngIf="(identity && identity.userrol == 'ROLE_ADMIN')">
+                        <label><b>DESCRIPCIÓN GRUPO: </b></label> {{group.grouptext}}
+                    </p>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <br/>
+        <ul class="pagination justify-content-end" *ngIf="(identity && identity.userrol == 'ROLE_ADMIN')">
+            <li class="page-item" *ngIf="page >1"><a [routerLink]="['/grupos',prev_page]"><button class="btn btn-outline-primary">Anterior</button></a></li>
+            <li class="page-item" *ngIf="page != page"><a [routerLink]="['/grupos',next_page]"><button class="btn btn-outline-primary">Siguiente</button></a></li>
+
+        </ul>
+
+    </div>
+</div>
+
+<!--Cargar los grupos para el usuario-->
+
+<div class="col-lg-12" *ngIf="(identity && identity.userrol == 'ROLE_USER')">
+    <br/> <br/>
+
+
+    <div class="card">
+
+        <div class="card-header text-center" *ngIf="identity">
+            <img src="{{url +'get-image-user/'+ identity.userimagen}}" class="rounded-circle  " width="85px" height="85px" alt="Imagen Usuario" *ngIf="identity.userimagen" />
+            <img src="assets/user.png" class="rounded-circle  " width="85px" height="85px" *ngIf="!identity.userimagen" />
+            <br>
+            <hr>
+            <p>{{identity.userprimernombre}} {{identity.userprimerapellido}}</p>
+            <hr>
+            <a [routerLink]="['/perfil/'+identity._id]">Ver mi Perfil</a>
+        </div>
+
+
+    </div>
+
+    <br/>
+    <div class="card">
+
+        <div class="card-header">
+            <p>TU LISTA DE GRUPOS</p>
+            <div *ngFor="let group of groups">
+                <ul class="list-group">
+
+                    <a id="{{group._id}}" (click)="getListGroups()" class="uno list-group-item  list-group-item-action">{{group.groupname}}
+                        <p class=" float-right"> {{group.users.length}}</p>
+                    </a>
+
+                </ul>
+
+
+
+            </div>
+            <br/>
+            <div class="card">
+
+                <div *ngFor="let user of users">
+                    <div class="card-block" style="margin: 10px;padding: 8px;">
+                        <img src="{{url +'get-image-user/'+ user.userimagen}}" class="rounded-circle float-left" width="46px" height="46px" *ngIf="user.userimagen" />
+
+                        <img src="assets/user.png" class="rounded-circle float-left" width="45px" height="45px" *ngIf="!user.userimagen" /> {{user.userprimernombre}} {{user.userprimerapellido}}
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--
+    <div class="card">
+        <div *ngFor="let group of groups" class="item-user">
+            <div class="card" style="margin: 10px;padding: 8px;">
+                <div class="card-block">
+                    <label><b>NOMBRE GRUPO:</b></label>{{group.groupname}} {{group._id}}
+
+                    <br/>
+
+
+
+                    Para cargar el listado de usuarios que tiene un grupo
+
+                    <div class="people">
+                        <div *ngFor="let user of users" class="item-user">
+                            <div class="card" style="margin: 10px;padding: 8px;">
+                                <div class="card-block">
+                                    <div>
+                                        {{user.useridentificacion}} {{user.userprimernombre}} {{user.userprimerapellido}}
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <p *ngIf="(identity && identity.userrol == 'ROLE_ADMIN ')">
+                        <label><b>DESCRIPCIÓN GRUPO: </b></label> {{group.grouptext}}
+                    </p>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+       
+
+    </div>
+
+-->
+
+</div>

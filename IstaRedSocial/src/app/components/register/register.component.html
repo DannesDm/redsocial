@@ -1,0 +1,124 @@
+<div class="col-lg-5">
+
+    <br/><br/>
+    <h1 class="text-center">{{title}}</h1>
+    <!--Poner un comentario -->
+    <div class="alert alert-success" *ngIf="status=='success'">
+        Registro completado correctamente <a [routerLink]="['/login']">Indentifícate aquí</a>
+
+    </div>
+
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        El registro no ha podido completarse, tu usuario ya esta en uso, intentalo de nuevo con datos nuevos
+    </div>
+
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+
+
+        <p>
+
+            <label>Identififación:</label>
+            <input type="text" placeholder="Ingrese el número de cédula" name="useridentificacion" #useridentificacion="ngModel" [(ngModel)]="user.useridentificacion" class="form-control" required onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10"
+            />
+            <span *ngIf="!useridentificacion.valid && useridentificacion.touched">
+    La identificación es obligatoria!!
+    </span>
+        </p>
+
+        <!---
+        <p>
+
+            <label>Grupo:</label>
+            <input type="text" placeholder="Ingrese el código del Grupo (Opcional)" name="usergrupo" #usergrupo="ngModel" [(ngModel)]="user.usergrupo" class="form-control" required onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10" />
+            <span *ngIf="!usergrupo.valid && usergrupo.touched">
+    El código del grupo es obligatorio!!
+    </span>
+        </p>
+
+-->
+
+
+        <p>
+
+            <label>Primer Nombre:</label>
+            <input type="text" placeholder="Ingrese el Primer Nombre" name="userprimernombre" #userprimernombre="ngModel" [(ngModel)]="user.userprimernombre" class="form-control" required pattern="[A-Za-z0]+" maxlength="15" />
+            <span *ngIf="!userprimernombre.valid && userprimernombre.touched">
+    Campo de Primer Nombre es Obligatorio!!
+    </span>
+        </p>
+
+
+        <p>
+
+            <label>Segundo Nombre:</label>
+            <input type="text" placeholder="Ingrese el Segundo Nombre" name="usersegundonombre" #usersegundonombre="ngModel" [(ngModel)]="user.usersegundonombre" class="form-control" required pattern="[A-Za-z0]+" maxlength="15" />
+            <span *ngIf="!usersegundonombre.valid && usersegundonombre.touched">
+                Campo de  Segundo Nombre es Obligatorio!!
+    </span>
+        </p>
+
+
+        <p>
+
+            <label>Primer Apellido:</label>
+            <input type="text" placeholder="Ingrese el Primer Apellido" name="userprimerapellido" #userprimerapellido="ngModel" [(ngModel)]="user.userprimerapellido" class="form-control" required pattern="[A-Za-z0]+" maxlength="15" />
+            <span *ngIf="!userprimerapellido.valid && userprimerapellido.touched">
+    Campo de Primer Apellido es Obligatorio!!
+    </span>
+        </p>
+
+
+        <p>
+
+            <label>Segundo Apellido:</label>
+            <input type="text" placeholder="Ingrese el Segundo Apellido" name="usersegundoapellido" #usersegundoapellido="ngModel" [(ngModel)]="user.usersegundoapellido" class="form-control" required pattern="[A-Za-z0]+" maxlength="15" />
+            <span *ngIf="!usersegundoapellido.valid && usersegundoapellido.touched">
+                Campo de Primer Segundo Apellido es Obligatorio!!
+    </span>
+        </p>
+
+        <p>
+
+            <label>Correo Electrónico:</label>
+            <input type="email" placeholder="Ingrese el correo ejemplo(pedro@gmail.com)" name="usercorreo" #usercorreo="ngModel" [(ngModel)]="user.usercorreo" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+            <span *ngIf="!usercorreo.valid && usercorreo.touched">
+    Campo de Correo Electrónico no es correcto, ingresar bien los datos!!
+    </span>
+        </p>
+
+
+        <p>
+
+            <label>Dirección:</label>
+            <input type="text" placeholder="Ingrese el sector o dirección domiciliaria" name="usersector" #usersector="ngModel" [(ngModel)]="user.usersector" class="form-control" required maxlength="52" />
+            <span *ngIf="!usersector.valid && usersector.touched">
+                Campo de Dirección es obligatorio!!
+    </span>
+        </p>
+
+        <p>
+
+            <label>Teléfono:</label>
+            <input type="text" placeholder="Ingrese el número de teléfono" name="usertelefono" #usertelefono="ngModel" [(ngModel)]="user.usertelefono" class="form-control" required onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10" />
+            <span *ngIf="!usertelefono.valid && usertelefono.touched">
+                El campo de teléfono es Obligatorio!!
+    </span>
+        </p>
+
+        <p>
+
+            <label>Contraseña:</label>
+            <input type="password" placeholder="Ingrese una contraseña" name="userpassword" #userpassword="ngModel" [(ngModel)]="user.userpassword" class="form-control" required maxlength="15" />
+            <span *ngIf="!userpassword.valid && userpassword.touched">
+                El campo de la contraseña es Obligatorio!!
+    </span>
+        </p>
+
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid" />
+
+    </form>
+</div>
