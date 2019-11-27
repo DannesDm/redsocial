@@ -20,7 +20,7 @@ import { ListausuariosComponent } from './components/listausuarios/listausuarios
 
 
 const appRoutes: Routes = [
-{path: '', component : HomeComponent},
+{path: '', component : LoginComponent},
 {path: 'home', component : HomeComponent},
 {path: 'login', component: LoginComponent},
 {path: 'registro', component: RegisterComponent},

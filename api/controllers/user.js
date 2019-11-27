@@ -1,5 +1,4 @@
-'use strict';
-
+'use strict'
 /*En el controlador Se escriben todos los metodos que va tener cada Esquema*/
 
 var bcrypt = require('bcrypt-nodejs'); /*Encriptar contraseña usuario*/
@@ -11,6 +10,7 @@ var Publication = require('../models/publication');
 var jwt = require('../services/jwt'); //Instancia del servicio
 var mongoosePaginate = require('mongoose-pagination'); //mostrar usuarios en pagina
 var fs = require('fs'); //para archivos
+
 
 
 
@@ -156,29 +156,6 @@ function loginUser(req, res) {
 
 }
 
-/*
-async function followThisUser(identity_user_id, user_id) {
-    var following = await Follow.findOne({ "user": identity_user_id, "followed": user_id }).exec((err, follow) => {
-        if (err) return handleError(err);
-        return follow;
-
-
-    });
-    console.log(following);
-    var followed = await Follow.findOne({ "user": user_id, "followed": identity_user_id }).exec((err, follow) => {
-        if (err) return handleError(err);
-        return follow;
-    });
-
-    console.log(followed);
-
-    return {
-        following: following,
-        followed: followed
-    }
-
-
-}*/
 
 // Conseguir datos de un usuario
 function getUser(req, res) {
@@ -188,28 +165,61 @@ function getUser(req, res) {
         if (err) return res.status(500).send({ message: 'Error en la peticion' });
 
         if (!user) return res.status(404).send({ mesage: 'El usuario no existe' }); //cuando venga un id que no existe
+        /*
+                followThisUser(req.user.sub, userId).then((value) => {
+                    user.userpassword = undefined;
 
-        /* followThisUser(req.user.sub, userId).then((value) => {
-             user.userpassword = undefined;
+                    console.log("pedro:" + req.user.sub);
+                    console.log("ana" + userId);
+                    console.log("valor" + value.followed);
+                    return res.status(200).send({
+                        user,
+                        following: value.following,
+                        followed: value.followed
 
-             console.log(req.user.sub);
-             console.log(userId);
-             return res.status(200).send({
-                 user,
-                 following: value.following,
-                 followed: value.followed
+                    });
+                });
 
-             });
-         });*/
+               
+
+                 */
         return res.status(200).send({
             user
-
         });
 
     });
 }
 
+/*
+async function followThisUser(identity_user_id, user_id) {
+    const following = await Follow.findOne({ $and: [{ user: identity_user_id }, { followed: user_id }] }).exec((err, follow) => {
+        if (err) return handleError(err);
+        return follow;
 
+
+    });
+
+    console.log(following);
+    const followed = await Follow.findOne({ user: user_id, followed: identity_user_id }).exec((err, follow) => {
+        if (err) return handleError(err);
+
+        return follow;
+    });
+
+    console.log(followed);
+    if (following == undefined) {
+
+        return {
+            following: following,
+            followed: followed
+        }
+
+    }
+
+}
+
+followThisUser();
+*/
 /*
 function getUser(req, res) {
     var userId = req.params.id;

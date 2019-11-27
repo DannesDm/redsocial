@@ -1,5 +1,3 @@
-'use strict'
-
 /*Para crear los tokens que son un conjunto de archivos que tiene encriptado todo
 el usuario o el objeto
 */

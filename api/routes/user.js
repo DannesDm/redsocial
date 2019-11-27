@@ -11,12 +11,13 @@ var md_auth = require('../middlewares/authenticated');
 var multipart = require('connect-multiparty');
 var md_upload = multipart({ uploadDir: './uploads/users' });
 
+
 //cargar rutas para probar en el postman y luego en el frontend de angular
 api.get('/home', UserController.home);
 api.get('/pruebas', md_auth.ensureAuth, UserController.pruebas);
 api.post('/register', UserController.saveUser);
 api.post('/login', UserController.loginUser);
-api.get('/user/:id', md_auth.ensureAuth, UserController.getUser);
+api.get('/user/:id?', md_auth.ensureAuth, UserController.getUser);
 api.get('/users/:page?', md_auth.ensureAuth, UserController.getUsers);
 api.get('/getusers', UserController.getMyUsers);
 //api.get('/counters/:id?', md_auth.ensureAuth, UserController.getCounters);

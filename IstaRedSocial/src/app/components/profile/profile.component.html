@@ -1,6 +1,7 @@
 <div class="col-lg-12">
-    <h1> {{title}} </h1>
+
     <!--
+        <h1> {{title}} </h1>
     <div id="data-profile" *ngIf="user">
 
         <div class="avatar ">
@@ -31,7 +32,7 @@
     <!--Encabezado-->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
-            <img src="../../../assets/uno.png" style="height:14% ; width: 14%;" alt="Logo Instituto">
+            <img src="../../../assets/uno.png" style="height:14% ; width: 4%;" alt="Logo Instituto">
         </div>
     </div>
     <!--Cuerpo-->
@@ -72,19 +73,18 @@
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-sm-4">
-            <h2>Sobre mi</h2>
-            <h5>Mi Imagen:</h5>
+
             <div class="fakeimg" *ngIf="user">
-                <img src="{{url +'get-image-user/'+ user.userimagen}}" width="300px" height="300px" class="card-img-top" alt="Imagen Usuario" *ngIf="user.userimagen" />
-                <img src="assets/user.png" class="rounded-circle float-left" width="85px" height="85px" *ngIf="!user.userimagen" />
+                <img src="{{url +'get-image-user/'+ user.userimagen}}" width="190px" height="190px" class="rounded-circle float-left" alt="Imagen Usuario" *ngIf="user.userimagen" />
+                <img src="assets/user.png" class="rounded-circle float-left" width="190px" height="190px" *ngIf="!user.userimagen" />
             </div>
             <p></p>
 
             <hr class="d-sm-none">
         </div>
         <div class="col-sm-8" *ngIf="user">
-            <h2>MIS DATOS <a [routerLink]="['/mis-datos']"><button class="btn btn-outline-primary float-right">Editar</button></a></h2>
-            <h5 style="color: #1976d2 ;">Usuario</h5>
+            <h2>{{user.useridentificacion}}<a [routerLink]="['/mis-datos']"><button class="btn edit-btn">Editar</button></a></h2>
+
 
             <p class="card-text"><b>Identificación: </b>{{user.useridentificacion}}</p>
             <p class="card-text"><b>Primer Nombre:</b> {{user.userprimernombre}}</p>

@@ -1,59 +1,75 @@
-<div class="col-lg-8">
-    <br/><br/>
-    <h1 class="h1-strong text-center">{{title}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
 
 
-    <div class="people">
 
-        <!--LISTADO DE USUARIOS-->
-        <div *ngFor="let user of users" class="item-user">
-            <div class="card" style="padding: 8px;margin: 10px;">
 
-                <div class="card-blockquote">
 
-                    <div class="image-user">
-                        <a href="#">
-                            <img src="{{url + 'get-image-user/' + user.userimagen }}" class="rounded-circle float-left" style="margin: 4px;" width="85px" height="85px" *ngIf="user.userimagen" />
-                            <img src="assets/user.png" class="avatar-default" class="rounded-circle float-left" width="85px" height="85px" *ngIf="!user.userimagen" />
-                        </a>
+    <!--LISTADO DE USUARIOS-->
+    <div *ngFor="let user of users">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="card" style="padding: 4px;margin: 10px;position: relative;margin-top:100px;">
+
+
+
+                    <div>
+
+                        <img src="{{url + 'get-image-user/' + user.userimagen }}" class="rounded-circle " width="190px" height="190px" *ngIf="user.userimagen" />
+                        <img src="assets/user.png" class="avatar-default" class="rounded-circle float-left" width="190px" height="190px" *ngIf="!user.userimagen" />
 
                     </div>
-                    <p class="nombreapellido">
-                        <a [routerLink]="['/perfil/'+user._id]" style="color: black;">
-                            <b>{{user.userprimernombre + ' '+ user.userprimerapellido}} </b>
-                        </a>
-                    </p>
-                    <p class="identificacionusuario"> {{user.useridentificacion}}</p>
+
+                    <ul class="nombreapellido">
+                        <li>
+                            <a [routerLink]="['/perfil/'+user._id]" style="text-align: center;color: black;">
+                                <b>{{user.userprimernombre + ' '+ user.userprimerapellido}} </b>
+                            </a>
+                        </li>
+
+                        <li>
+                            {{user.usersector}}
+                        </li>
+                    </ul>
+
+
+
 
                 </div>
 
 
-                <!------>
-                <!--
-                <div class="pull-right">
-                    <button class="btn btn-success" (click)="followUser(user._id)">Seguir</button>
-                    <button class="btn btn-danger">DejardeSeguir</button>
-
-                </div>
--->
-                <!------>
 
             </div>
 
-
-
+            <div class="col-log-4"></div>
         </div>
 
-        <!--Paginacion-->
-        <ul class="pagination justify-content-end">
-            <li *ngIf="page > 1"><a [routerLink]="['/gente',prev_page]"><button class="btn btn-outline-primary">Anterior</button></a></li>
 
-            <li *ngIf="pages != page"><a [routerLink]="['/gente',next_page]"><button class="btn btn-outline-primary">Siguiente</button></a></li>
-        </ul>
+
+
+
 
     </div>
 
+    <!--Paginacion-->
+    <ul class="pagination justify-content-end">
+        <li *ngIf="page > 1"><a [routerLink]="['/gente',prev_page]"><button class="btn btn-outline-primary">Anterior</button></a></li>
 
+        <li *ngIf="pages != page"><a [routerLink]="['/gente',next_page]"><button class="btn btn-outline-primary">Siguiente</button></a></li>
+    </ul>
 
+</body>
 
-</div>
+<script src="user.js"></script>
+
+</html>
